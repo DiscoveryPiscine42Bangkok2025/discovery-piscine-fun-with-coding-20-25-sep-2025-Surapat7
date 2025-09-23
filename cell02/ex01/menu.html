@@ -1,23 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Menu</title>
-    <link rel="stylesheet" href="menu.css">
-</head>
-<body>
-    <nav class="menu">
-        <ul>
-            <li class="dropdown">
-                <a href="#">SNCF sandwich</a>
-                <ul class="sub">
-                    <li><a href="#">Bread Top</a></li>
-                    <li><a href="#">Cheese</a></li>
-                    <li><a href="#">Ham</a></li>
-                    <li><a href="#">Bread Bottom</a></li>                   
-                </ul>
-            </li>
-        </ul>
-    </nav>
-</body>
-</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(209, 241, 255);
+    margin: 50;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #e2ffbc;
+    display: flex;
+}
+
+.menu ul li {
+    position: relative;
+}
+
+.menu ul li a {
+    display: block;
+    padding: 14px 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.menu ul li .sub {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgb(235, 227, 227);
+    min-width: 160px;
+}
+
+.menu ul li .sub li a {
+    padding: 12px 16px;
+}
+
+.menu ul li:hover .sub {
+  display: block;
+}
