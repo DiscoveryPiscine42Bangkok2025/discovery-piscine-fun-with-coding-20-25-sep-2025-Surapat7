@@ -1,0 +1,15 @@
+table {
+            height: 100vh;
+            width: 100%;
+}
+
+td {
+            border: 1px rgb(203, 112, 255);
+            text-align: center;
+}
+
+.zone1 {background-color: rgb(255, 135, 201);}
+.zone2 {background-color: rgb(194, 183, 255);}
+.zone3 {background-color: rgb(174, 252, 255);}
+.zone4 {background-color: rgb(247, 255, 178);}
+.zone5 {background-color: rgb(255, 165, 165);}
