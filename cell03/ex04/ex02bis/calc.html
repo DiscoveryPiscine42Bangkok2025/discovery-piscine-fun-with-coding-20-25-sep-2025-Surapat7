@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basic Calculator</title>
     <style>
-        /* โค้ด CSS */
+        /* CSS starts here */
         body {
             display: flex;
             justify-content: center;
@@ -41,6 +41,7 @@
             cursor: pointer;
             border: none;
         }
+        /* CSS ends here */
     </style>
 </head>
 <body>
@@ -59,63 +60,66 @@
         <button id="calculate-btn">Try me!</button>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
     <script>
-        /* โค้ด JavaScript ที่ใช้ jQuery */
-        $(document).ready(function() {
-            const num1Input = $('#num1');
-            const num2Input = $('#num2');
-            const operatorSelect = $('#operator');
-            const calculateBtn = $('#calculate-btn');
-            
-            // Function to handle the calculation
-            function calculate() {
-                const num1 = parseInt(num1Input.val());
-                const num2 = parseInt(num2Input.val());
-                const operator = operatorSelect.val();
-                let result;
+        /* JavaScript starts here */
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const operatorSelect = document.getElementById('operator');
+        const calculateBtn = document.getElementById('calculate-btn');
 
-                if (isNaN(num1) || isNaN(num2) || num1 < 0 || num2 < 0) {
-                    alert("Error :(");
-                    console.log("Error :(");
-                    return;
-                }
+        // ฟังก์ชันสำหรับจัดการการคำนวณ
+        function calculate() {
+            const num1 = parseInt(num1Input.value);
+            const num2 = parseInt(num2Input.value);
+            const operator = operatorSelect.value;
+            let result;
 
-                if ((operator === '/' || operator === '%') && num2 === 0) {
-                    alert("It's over 9000!");
-                    console.log("It's over 9000!");
-                    return;
-                }
-
-                switch (operator) {
-                    case '+':
-                        result = num1 + num2;
-                        break;
-                    case '-':
-                        result = num1 - num2;
-                        break;
-                    case '*':
-                        result = num1 * num2;
-                        break;
-                    case '/':
-                        result = num1 / num2;
-                        break;
-                    case '%':
-                        result = num1 % num2;
-                        break;
-                }
-
-                alert(result);
-                console.log(result);
+            // เงื่อนไขที่ 1: ตรวจสอบว่าเป็นจำนวนเต็มบวกหรือไม่
+            if (isNaN(num1) || isNaN(num2) || num1 < 0 || num2 < 0) {
+                alert("Error :(");
+                console.log("Error :(");
+                return;
             }
 
-            calculateBtn.on('click', calculate);
+            // เงื่อนไขที่ 2: ตรวจสอบการหารหรือโมดูโลด้วยศูนย์
+            if ((operator === '/' || operator === '%') && num2 === 0) {
+                alert("It's over 9000!");
+                console.log("It's over 9000!");
+                return;
+            }
 
-            setInterval(() => {
-                alert("Please, use me...");
-            }, 30000);
-        });
+            // Perform the calculation
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                case '%':
+                    result = num1 % num2;
+                    break;
+            }
+
+            // Display the result
+            alert(result);
+            console.log(result);
+        }
+
+        // Add event listener to the button
+        calculateBtn.addEventListener('click', calculate);
+
+        // Condition 3: Show a pop-up every 30 seconds
+        setInterval(() => {
+            alert("Please, use me...");
+        }, 30000);
+        /* JavaScript ends here */
     </script>
 </body>
 </html>
