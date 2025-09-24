@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Portfolio</title>
+  <link rel="stylesheet" href="Rush.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
 
+  <!-- หน้าแรก -->
+  <div id="landing" class="landing-container">
+    <h1>Welcome to Our Portfolios</h1>
+    <p>Click a person to view their portfolio</p>
+
+    <div class="people-grid">
+      <div class="person-card" onclick="showPortfolio(1)">
+        <img src="https://media.discordapp.net/attachments/1419577960314310688/1420330241032716380/IMG_0280.jpg?ex=68d5011d&is=68d3af9d&hm=8e15d4802dbc8baf578ff6bd028fcc7123e6f6f3b93ade954251774a430fea83&=&format=webp&width=726&height=968" alt="Person 1" />
+        <h2>Aontiwa Suepwong</h2>
+        <button class="btn">View Portfolio</button>
+      </div>
+
+      <div class="person-card" onclick="showPortfolio(2)">
+        <img src="https://media.discordapp.net/attachments/1419577960314310688/1420332872090259497/original_2568-08-31_105607.306.jpg?ex=68d50391&is=68d3b211&hm=5e48ad37fca14273461702e16ad1a4cc0db1f390079c3fee4fe5f6adf2233835&=&format=webp&width=726&height=968" alt="Person 2" />
+        <h2>Surapat Lueangjueai</h2>
+        <button class="btn">View Portfolio</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- หน้า Portfolio -->
+  <div id="portfolio" style="display: none;">
+    <nav class="navbar">
+      <div class="container">
+        <h1 class="logo" id="person-name">Portfolio</h1>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#showcase">Showcase</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="back-button-container">
+      <button onclick="goBack()" class="btn back-btn">← Back to Home</button>
+    </div>
+
+    <section id="about" class="section">
+      <div class="container about-container">
+        <img id="person-img" src="" alt="Profile Photo" class="profile-img" />
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p id="person-about"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="showcase" class="section">
+      <div class="container">
+        <h2>Showcase</h2>
+        <div class="grid showcase-grid" id="person-showcase"></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p>You can reach me on these platforms:</p>
+        <div class="contact-grid" id="person-contact"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const people = {
+      1: {
+        name: "Aontiwa Suepwong",
+        image: "https://media.discordapp.net/attachments/1419577960314310688/1420330241032716380/IMG_0280.jpg?ex=68d5011d&is=68d3af9d&hm=8e15d4802dbc8baf578ff6bd028fcc7123e6f6f3b93ade954251774a430fea83&=&format=webp&width=726&height=968",
+        about: "My name is Aontiwa Suepwong I am a student at King Mongkut's Institute of Technology Ladkrabang ,studying business school.",
+        showcase: `
+          <div class="card">
+            <img src="https://media.discordapp.net/attachments/1419577960314310688/1420345635613180004/IMG_4324.jpg?ex=68d50f74&is=68d3bdf4&hm=a747e2a16b25cc17c8ef39b21247c9f20cb70c164031775c9f3789fe3c211e62&=&format=webp&width=1297&height=864" alt="Planting Trees" style="width:75%; border-radius: 8px;" />
+            <p>Creative thinking Development Activity</p>
+          </div>
+          <div class="card">
+            <img src="https://media.discordapp.net/attachments/1419577960314310688/1420376224240373832/IMG_4465.jpg?ex=68d52bf1&is=68d3da71&hm=6dfbde0815a42db8a9a849c3787a74c85cd6b8c43eadd8937a2d29d9e7c84f93&=&format=webp&width=1152&height=864" alt="Cleaning Park" style="width:75%; border-radius: 8px;" />
+            <p>Training camp for new generation of youths to save the world and reduce pollution</p>
+          </div>
+          <div class="card">
+            <img src="https://media.discordapp.net/attachments/1419577960314310688/1420376224513130598/IMG_4466.jpg?ex=68d52bf1&is=68d3da71&hm=e67601809eeb262f9c30f25fab4831eb547d15c753a983d33446cc06f543384d&=&format=webp&width=1152&height=864" alt="Helping Elderly" style="width:75%; border-radius: 8px;" />
+            <p>Training camp for new generation of youths to save the world and reduce pollution</p>
+          </div>
+        `,
+        contact: `
+          <a href="https://github.com/DiscoveryPiscine42Bangkok2025/discovery-piscine-fun-with-coding-20-25-sep-2025-Aontiwa/tree/main" class="contact-btn" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://www.instagram.com/_atwspw" class="contact-btn" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+        `
+      },
+      2: {
+        name: "Surapat Lueangjueai",
+        image: "https://media.discordapp.net/attachments/1419577960314310688/1420332872090259497/original_2568-08-31_105607.306.jpg?ex=68d50391&is=68d3b211&hm=5e48ad37fca14273461702e16ad1a4cc0db1f390079c3fee4fe5f6adf2233835&=&format=webp&width=726&height=968",
+        about: "Hello, I am a student of business economics and management. I like to play football.",
+        showcase: `
+          <div class="card">
+            <img src="https://media.discordapp.net/attachments/1419577960314310688/1420370770063917219/image-2568-07-19-160329-405.jpg?ex=68d526dc&is=68d3d55c&hm=3b6240606ec9aa448e3bca23bd5ebda9eb7920dc15a5d5e949ae038bbe3d4f82&=&format=webp&width=726&height=968" alt="Planting Trees" style="width:75%; border-radius: 8px;" />
+            <p>First Meet ECON</p>
+          </div>
+          <div class="card">
+            <img src="https://media.discordapp.net/attachments/1419577960314310688/1420370014028173482/ccdr_2568-08-18_150343.608.jpg?ex=68d52628&is=68d3d4a8&hm=55ac14c4ce49b849d3e859623ac37064553c265be40baf930ee94a7693214a06&=&format=webp&width=648&height=864" alt="Cleaning Park" style="width:75%; border-radius: 8px;" />
+            <p>Coding training at 42Bangkok KLLC</p>
+          </div>
+          <div class="card">
+            <img src="https://media.discordapp.net/attachments/1419577960314310688/1420370014921293905/IMG_5923.jpg?ex=68d52628&is=68d3d4a8&hm=8c0b413de99e4d9d917d74fb239209631fa2426d400e3dcfcbc7c325a162f430&=&format=webp&width=648&height=864" alt="Helping Elderly" style="width:75%; border-radius: 8px;" />
+            <p>KBS Sportday Activity</p>
+          </div>
+        `,
+        contact: `
+          <a href="https://github.com/DiscoveryPiscine42Bangkok2025/discovery-piscine-fun-with-coding-20-25-sep-2025-Surapat7/tree/main" class="contact-btn" target="_blank">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="https://www.instagram.com/fairsurapat" class="contact-btn" target="_blank">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+        `
+      }
+    };
+
+    function showPortfolio(id) {
+      const p = people[id];
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('portfolio').style.display = 'block';
+
+      document.getElementById('person-name').innerText = p.name;
+      document.getElementById('person-img').src = p.image;
+      document.getElementById('person-about').innerText = p.about;
+      document.getElementById('person-showcase').innerHTML = p.showcase;
+      document.getElementById('person-contact').innerHTML = p.contact;
+    }
+
+    function goBack() {
+      document.getElementById('portfolio').style.display = 'none';
+      document.getElementById('landing').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>
