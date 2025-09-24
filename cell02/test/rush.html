@@ -1,45 +1,54 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>เลือกพอร์ตโฟลิโอ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Portfolio</title>
   <link rel="stylesheet" href="rush.css">
 </head>
 <body>
 
-  <div class="container">
-    <h1>เลือกพอร์ตโฟลิโอ</h1>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="#about">About</a></li>
+      <li><a href="#showcase">Showcase</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <div class="card-container">
-      <div class="card">
-        <h2>THANAKRIT 1</h2>
-        <p>UI/UX Designer & Frontend Developer</p>
-        <a href="thanakrit1.html" class="btn">ดูพอร์ต</a>
-      </div>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h1>Hello, I'm Jane Doe</h1>
+    <img src="your-photo.jpg" alt="Profile photo">
+    <p>
+      I'm a web developer with a passion for clean code and creative design.
+      I graduated from ABC University with a degree in Computer Science.
+      In my free time, I love hiking, photography, and building personal projects.
+    </p>
+  </section>
 
-      <div class="card">
-        <h2>THANAKRIT 2</h2>
-        <p>Full-stack Developer & Technical Writer</p>
-        <a href="thanakrit2.html" class="btn">ดูพอร์ต</a>
-      </div>
-    </div>
+  <!-- Showcase Section -->
+  <section id="showcase" class="section">
+    <h2>My Skills & Experience</h2>
+    <ul>
+      <li>🌐 Frontend: HTML, CSS, JavaScript, React</li>
+      <li>💻 Backend: Node.js, Express</li>
+      <li>🛠 Tools: Git, VSCode, Figma</li>
+      <li>📁 Projects: Portfolio website, Todo App, Blog CMS</li>
+    </ul>
+  </section>
 
-    <div class="card-list">
-      <div class="card-small">
-        <h3>🔗 พอร์ต Person 1</h3>
-        <p>นี่คือรายละเอียดของพอร์ตหมายเลข 1</p>
-        <a href="person1.html" class="btn-small">ดูพอร์ต</a>
-      </div>
-
-      <div class="card-small">
-        <h3>💻 พอร์ต Person 2</h3>
-        <p>นี่คือรายละเอียดของพอร์ตหมายเลข 2</p>
-        <a href="person2.html" class="btn-small">ดูพอร์ต</a>
-      </div>
-    </div>
-
-  </div>
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>Feel free to reach out via social media:</p>
+    <ul class="social-links">
+      <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a></li>
+      <li><a href="https://instagram.com/yourusername" target="_blank">Instagram</a></li>
+    </ul>
+  </section>
 
 </body>
 </html>
